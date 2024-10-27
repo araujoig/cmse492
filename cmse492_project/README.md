@@ -23,6 +23,19 @@ This project aims to develop an unsupervised machine learning model for detectin
 - **README.md**: Project overview and setup instructions.
 - **requirements.txt**: List of dependencies required to run the project.
 
+## Data Source
+
+The dataset used in this project contains stock market data collected from [nasdaq.com](https://www.nasdaq.com) through web scraping. It includes stock prices, trading volumes, and other key metrics for top-listed companies.
+
+- **Dataset Details**:
+  - **Total Rows**: 25,161, with each row representing the stock market data for a specific company on a given date.
+  - **Key Companies**: Apple, Starbucks, Microsoft, Cisco Systems, Qualcomm, Meta, Amazon.com, Tesla, Advanced Micro Devices, and Netflix.
+  - **Features Included**: Stock prices, trading volumes, and daily price changes.
+
+1. **Download Instructions**:
+   - Data was collected through web scraping from [nasdaq.com](https://www.nasdaq.com).
+   - Ensure that `data.csv` is placed in the `data/raw/` folder.
+
 ## Dependencies and Requirements
 - Python 3.x
 - Required packages listed in `requirements.txt`. Install them by running:
