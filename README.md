@@ -21,11 +21,7 @@ This project focuses on detecting anomalies in financial market data using unsup
   - PCA plots of anomalies vs. normal data.
   - Kernel Density Estimation (KDE) plots for feature distributions.
   - Temporal distribution of anomalies and correlations with historical events.
-- **src/**: Source code for data preprocessing and model building.
-  - `data_preprocessing.py`: Functions for cleaning, transforming, and preparing the dataset.
-  - `anomaly_detection_model.py`: Code for building, training, and evaluating anomaly detection models.
 - **README.md**: Overview and instructions for the project.
-- **requirements.txt**: List of Python dependencies required to run the project.
 
 ## Data Source
 
