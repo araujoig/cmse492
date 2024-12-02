@@ -1,4 +1,4 @@
-# Anomaly Detection in Financial Trading Data
+# Anomaly Detection in Stock Market Data Using Unsupervised Machine Learning
 
 ## Project Description
 This project focuses on detecting anomalies in financial market data using unsupervised machine learning techniques. By identifying unusual trading patterns, the system aims to uncover potential market manipulation, fraudulent activities, or significant economic events. The analysis is conducted on historical stock market data to evaluate the effectiveness of multiple unsupervised learning models.
