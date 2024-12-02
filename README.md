@@ -1,43 +1,85 @@
 # Anomaly Detection in Financial Trading Data
 
 ## Project Description
-This project aims to develop an unsupervised machine learning model for detecting anomalous trading patterns within financial market data. By identifying unusual trading behaviors, we can spot potential market manipulation or fraudulent activities. The goal is to create a real-time system capable of flagging significant deviations from normal market activities.
+This project focuses on detecting anomalies in financial market data using unsupervised machine learning techniques. By identifying unusual trading patterns, the system aims to uncover potential market manipulation, fraudulent activities, or significant economic events. The analysis is conducted on historical stock market data to evaluate the effectiveness of multiple unsupervised learning models.
 
 ## Project Objectives
-- **Develop** a machine learning model to detect anomalous trading patterns in financial data.
-- **Implement** an unsupervised learning system for real-time anomaly detection that flags potential irregularities for further investigation.
+- **Develop** and compare unsupervised machine learning models to detect anomalies in stock market data.
+- **Validate** anomalies using statistical methods and correlate them with historical market events.
+- **Enhance** insights into market behavior through robust visualizations and analysis.
 
 ## Folder Structure
 
 - **data/**: Contains all data files.
-  - **raw/**: Raw data files (e.g., `data.csv`).
-  - **processed/**: Processed and cleaned data files for model input (e.g., `cleaned_data.csv`).
+  - **raw/**: Original dataset files (e.g., `data.csv`).
+  - **processed/**: Cleaned and preprocessed dataset files for model input (e.g., `cleaned_data.csv`).
 - **notebooks/**: Jupyter notebooks for data exploration and model development.
-  - `exploratory_data_analysis.ipynb`: Exploratory analysis of the data.
-  - `model_training.ipynb`: Training and evaluation of the anomaly detection model.
-- **reports/figures/**: Visualizations and figures generated during analysis.
-  - Includes various plots, such as anomaly detection results and trading volume distributions.
+  - `exploratory_data_analysis.ipynb`: Notebook for dataset exploration and feature engineering.
+  - `model_training.ipynb`: Notebook for model training, evaluation, and results visualization.
+- **reports/figures/**: Visualizations generated during analysis, including:
+  - Anomaly detection results.
+  - PCA plots of anomalies vs. normal data.
+  - Kernel Density Estimation (KDE) plots for feature distributions.
+  - Temporal distribution of anomalies and correlations with historical events.
 - **src/**: Source code for data preprocessing and model building.
-  - `data_preprocessing.py`: Preprocessing functions for data cleaning and transformation.
-  - `anomaly_detection_model.py`: Code to build and evaluate the anomaly detection model.
-- **README.md**: Project overview and setup instructions.
-- **requirements.txt**: List of dependencies required to run the project.
+  - `data_preprocessing.py`: Functions for cleaning, transforming, and preparing the dataset.
+  - `anomaly_detection_model.py`: Code for building, training, and evaluating anomaly detection models.
+- **README.md**: Overview and instructions for the project.
+- **requirements.txt**: List of Python dependencies required to run the project.
 
 ## Data Source
 
-The dataset used in this project contains stock market data collected from [nasdaq.com](https://www.nasdaq.com) through web scraping. It includes stock prices, trading volumes, and other key metrics for top-listed companies.
+The dataset contains stock market data collected from [nasdaq.com](https://www.nasdaq.com) through web scraping. It includes daily stock prices, trading volumes, and related metrics for leading companies.
 
 - **Dataset Details**:
-  - **Total Rows**: 25,161, with each row representing the stock market data for a specific company on a given date.
-  - **Key Companies**: Apple, Starbucks, Microsoft, Cisco Systems, Qualcomm, Meta, Amazon.com, Tesla, Advanced Micro Devices, and Netflix.
-  - **Features Included**: Stock prices, trading volumes, and daily price changes.
+  - **Total Rows**: 25,161.
+  - **Time Span**: 2013–2023.
+  - **Companies Included**: Apple, Starbucks, Microsoft, Cisco Systems, Qualcomm, Meta, Amazon.com, Tesla, Advanced Micro Devices, and Netflix.
+  - **Features**:
+    - Stock prices and trading volumes.
+    - Adjusted Close Change, Volume Change, Price Range, and Daily Price Change.
 
-1. **Download Instructions**:
-   - Data was collected through web scraping from [nasdaq.com](https://www.nasdaq.com).
-   - Ensure that `data.csv` is placed in the `data/raw/` folder.
+## Implemented Models
+
+1. **Isolation Forest (IF)**:
+   - Detects anomalies by isolating data points with unique characteristics.
+   - Effective for identifying global outliers.
+
+2. **Local Outlier Factor (LOF)**:
+   - Identifies anomalies based on density variations among neighboring points.
+
+3. **DBSCAN (Density-Based Spatial Clustering of Applications with Noise)**:
+   - Clusters data points and labels noise as anomalies.
+   - Parameters tuned using the k-distance graph.
+
+4. **Ensemble Model**:
+   - Combines results from Isolation Forest, LOF, and DBSCAN to enhance robustness.
+
+## Visualizations
+
+- **PCA Plots**:
+  - Highlights the separation of anomalies from normal data.
+- **KDE Plots**:
+  - Visualizes feature distributions for anomalies vs. normal data.
+- **Yearly and Monthly Anomalies**:
+  - Tracks the temporal distribution of anomalies.
+- **Anomalies on Duplicate Dates**:
+  - Links detected anomalies to specific historical market events.
+
+## Key Findings
+
+- **Anomalies Detected**:
+  - Isolation Forest and LOF: 252 anomalies each.
+  - DBSCAN: 461 anomalies.
+  - Ensemble Model: 277 anomalies (agreement of at least two models).
+- **Historical Event Correlation**:
+  - March 13, 2020: Anomalies in seven companies correspond to the declaration of a U.S. national emergency due to COVID-19 and Federal Reserve interventions.
+- **Feature Analysis**:
+  - Price Range showed significant deviations, confirmed by statistical tests and a large effect size (Cohen’s d = 1.18).
 
 ## Dependencies and Requirements
-- Python 3.x
-- Required packages listed in `requirements.txt`. Install them by running:
+
+- **Python Version**: Python 3.x
+- **Dependencies**: Listed in `requirements.txt`. Install them using:
   ```bash
   pip install -r requirements.txt
